@@ -20,11 +20,13 @@ const Navbar = () => {
       <div className="container px-4 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <img
-              className="h-14 w-auto md:h-12 md:w-auto mr-2"
-              src={logo}
-              alt="Logo"
-            />
+            <Link to="/"> {/* Lien vers la page principale */}
+              <img
+                className="h-14 w-auto md:h-12 md:w-auto mr-2"
+                src={logo}
+                alt="Logo"
+              />
+            </Link>
           </div>
           <ul className="hidden lg:flex ml-14 space-x-12 text-[#75000d]">
             {navItems.map((item, index) => (
@@ -48,6 +50,16 @@ const Navbar = () => {
               )}
             </button>
           </div>
+
+          {/* Bouton "Se connecter" ajouté ici */}
+          <div className="ml-8"> {/* Ajout d'une marge à gauche */}
+            <Link
+              to="#" // Lien temporaire, à remplacer par le lien réel
+              className="cursor-pointer text-[#75000d] border border-[#75000d] rounded px-4 py-2 hover:bg-[#75000d] hover:text-white transition-colors duration-150"
+            >
+              Se connecter
+            </Link>
+          </div>
         </div>
         {mobileDrawerOpen && (
           <div className="fixed right-0 z-20 bg-black w-full p-12 flex flex-col justify-center items-center lg:hidden">
@@ -63,6 +75,11 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+              <li className="mt-0 ml-8"> {/* Ajout de ml-8 pour l'espacement */}
+                <Link to="#" className="cursor-pointer text-[#75000d] border border-[#75000d] rounded px-4 py-2 hover:bg-[#75000d] hover:text-white transition-colors duration-150">
+                  Se connecter
+                </Link>
+              </li>
             </ul>
           </div>
         )}
